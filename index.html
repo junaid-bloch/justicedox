@@ -7,32 +7,36 @@
     <link rel="icon" type="img/jpg" href="images/WhatsApp Image 2024-02-10 at 01.08.48 (1).jpeg">
     <link rel="stylesheet" href="style.css">
     <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
-<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
 </head>
 <body>
 
     <div class="logo-container">
-            <img class="logo" src="images/WhatsApp Image 2024-02-10 at 01.08.48 (1).jpeg" alt="logo">
-            <h3 class="text" style="color: #fff; display: inline-flex; margin-top: 30px;">Justice Dox</h3>
-        </div>
+        <img class="logo" src="images/WhatsApp Image 2024-02-10 at 01.08.48 (1).jpeg" alt="logo">
+        <h3 class="text" style="color: #fff; display: inline-flex; margin-top: 30px;">Justice Dox</h3>
     </div>
-    <form action="next.html">
-        <div>
+    </div>
+    <form id="login-form" action="next.html">
             <img src="images/Drone surveillance-amico 1.jpg" alt="Police law force logo" >
         </div>
         <h1>Login Your Credentials</h1>
         <br>
         <h2>Remember! You are the Backbone of Law Enforcement System</h2>
         <label for="username">
-            <input type="text" name="username" placeholder="Enter your username">
+            <input type="email" name="email" placeholder="Enter your email id">
         </label>
         <label for="password">
             <input type="password" name="password" placeholder="Enter your password">
         </label>
                 <input type="submit" name="submit" value="Submit">
             </form>
-            <script type="module">
+            <!-- <script type="module">
                 // Import the functions you need from the SDKs you need
+                import { getAuth, isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
+
+import { getAuth, isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
+                import { getAuth, linkWithCredential, EmailAuthProvider } from "firebase/auth";
+    import { getAuth, reauthenticateWithCredential, EmailAuthProvider } from "firebase/auth";
                 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
                 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
                 // TODO: Add SDKs for Firebase products that you want to use
@@ -53,10 +57,104 @@
                 // Initialize Firebase
                 const app = initializeApp(firebaseConfig);
                 const analytics = getAnalytics(app);
+               
+
+// Confirm the link is a sign-in with email link.
+// Remove the line below since 'auth' is already declared above
+// const auth = getAuth();
+if (isSignInWithEmailLink(auth, window.location.href)) {
+  // Additional state parameters can also be passed via URL.
+  // This can be used to continue the user's intended action before triggering
+  // the sign-in operation.
+  // Get the email if available. This should be available if the user completes
+  // the flow on the same device where they started it.
+  let email = window.localStorage.getItem('emailForSignIn');
+  if (!email) {
+    // User opened the link on a different device. To prevent session fixation
+    // attacks, ask the user to provide the associated email again. For example:
+    email = window.prompt('Please provide your email for confirmation');
+  }
+  // The client SDK will parse the code from the link for you.
+  signInWithEmailLink(auth, email, window.location.href)
+    .then((result) => {
+      // Clear email from storage.
+      window.localStorage.removeItem('emailForSignIn');
+      // You can access the new user via result.user
+      // Additional user info profile not available via:
+      // result.additionalUserInfo.profile == null
+      // You can check if the user is new or existing:
+      // result.additionalUserInfo.isNewUser
+    })
+    .catch((error) => {
+      // Some error occurred, you can inspect the code: error.code
+      // Common errors could be invalid email and invalid or expired OTPs.
+    });
+   
+    // Rest of the code...
+
+
+// Construct the email link credential from the current URL.
+const credential = EmailAuthProvider.credentialWithLink(
+  email, window.location.href);
+
+// Link the credential to the current user.
+const auth = getAuth();
+linkWithCredential(auth.currentUser, credential)
+  .then((usercred) => {
+    // The provider is now successfully linked.
+    // The phone user can now sign in with their phone number or email.
+  })
+  .catch((error) => {
+    // Some error occurred.
+  });
+}
+
+
+// Construct the email link credential from the current URL.
+const credential = EmailAuthProvider.credentialWithLink(
+  email, window.location.href);
+
+// Re-authenticate the user with this credential.
+const auth = getAuth();
+reauthenticateWithCredential(auth.currentUser, credential)
+  .then((usercred) => {
+    // The user is now successfully re-authenticated and can execute sensitive
+    // operations.
+  })
+  .catch((error) => {
+    // Some error occurred.
+  });
               </script>
         </body>
         </html>
 
 
-        // 931397e5-0443-4798-b4ec-3dd52a8b058d
-      //  6EJz6GssosQwojmkb3gnAb7fQHaj5m8ArQnbSgFziaWFXTaV
+ 931397e5-0443-4798-b4ec-3dd52a8b058d 
+    <script>
+        const url = "https://your-backend-api.com/endpoint"; // Replace with your backend API URL
+
+        const data = {
+            // Replace with the data you want to send to the backend
+            username: "example@123",
+            password: "example",
+        };
+
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                // Handle the response from the backend
+                console.log(data);
+            })
+            .catch((error) => {
+                // Handle any errors that occurred during the request
+                console.error(error);
+            });
+    </script> -->
+</body>
+</html>
