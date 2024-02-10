@@ -6,17 +6,19 @@
     <title>Justice Dox</title>
     <link rel="icon" type="img/jpg" href="images/WhatsApp Image 2024-02-10 at 01.08.48 (1).jpeg">
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
 </head>
 <body>
 
     <div class="logo-container">
-            <img class="logo" src="WhatsApp Image 2024-02-10 at 01.08.48 (1).jpeg" alt="logo">
+            <img class="logo" src="images/WhatsApp Image 2024-02-10 at 01.08.48 (1).jpeg" alt="logo">
             <h3 class="text" style="color: #fff; display: inline-flex; margin-top: 30px;">Justice Dox</h3>
         </div>
     </div>
     <form action="next.html">
         <div>
-            <img src="Drone surveillance-amico 1.jpg" alt="Police law force logo" >
+            <img src="images/Drone surveillance-amico 1.jpg" alt="Police law force logo" >
         </div>
         <h1>Login Your Credentials</h1>
         <br>
@@ -29,5 +31,32 @@
         </label>
                 <input type="submit" name="submit" value="Submit">
             </form>
+            <script type="module">
+                // Import the functions you need from the SDKs you need
+                import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+                import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+                // TODO: Add SDKs for Firebase products that you want to use
+                // https://firebase.google.com/docs/web/setup#available-libraries
+              
+                // Your web app's Firebase configuration
+                // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+                const firebaseConfig = {
+                  apiKey: "AIzaSyBni0BLAfQbVozarxT90BMhpscSau9Q2SU",
+                  authDomain: "justice-dox.firebaseapp.com",
+                  projectId: "justice-dox",
+                  storageBucket: "justice-dox.appspot.com",
+                  messagingSenderId: "296846666074",
+                  appId: "1:296846666074:web:92ead103937514e256eb63",
+                  measurementId: "G-YBXWDPWJS4"
+                };
+              
+                // Initialize Firebase
+                const app = initializeApp(firebaseConfig);
+                const analytics = getAnalytics(app);
+              </script>
         </body>
         </html>
+
+
+        // 931397e5-0443-4798-b4ec-3dd52a8b058d
+      //  6EJz6GssosQwojmkb3gnAb7fQHaj5m8ArQnbSgFziaWFXTaV
